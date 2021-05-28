@@ -28,10 +28,27 @@
             <input type="text" name="userid" id="userid">
         </div>
         <div><label for="password">비밀번호</label>
-            <input type="password" name="password" id="password">
+            <input type="password" name="passwd" id="passwd">
         </div>
-        <div><button type="button">로그인</button>
+        <div><button type="button" id="loginbtn">로그인</button>
         </div>
+
+		<script>
+			var loginbtn = document.getElementById('loginbtn');
+			loginbtn.addEventListener('click',loginok);
+			
+			function loginok () {
+				var frm = document.getElementById('loginfrm');
+				if (frm.userid.value == '')
+					alert('아이디를 입력하세요!');
+				else if (frm.passwd.value == '')
+					alert('비밀번호를 입력하세요!');
+				else {
+					frm.action = 'loginok.jsp'
+					frm.submit();
+				}
+			}
+		</script>
 
         </form>
             </div>
